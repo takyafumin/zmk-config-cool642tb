@@ -7,40 +7,25 @@
 #define SCROLL 5
 #define NUM 6
 
-&mt {
-    flavor = "balanced";
-    quick-tap-ms = <0>;
-};
-
 / {
     combos {
         compatible = "zmk,combos";
-
-        comb1 {
-            bindings = <&kp TAB>;
-            key-positions = <11 10>;
-        };
-
-        comb2 {
-            bindings = <&kp LS(ESCAPE)>;
-            key-positions = <0 1>;
-        };
-
-        comb3 {
-            bindings = <&kp CAPSLOCK>;
-            key-positions = <22 23>;
-        };
-
-        comb4 {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <9 8>;
-        };
 
         comb5 {
             bindings = <&bt BT_CLR_ALL>;
             key-positions = <9 8>;
             timeout-ms = <0>;
             layers = <2>;
+        };
+
+        eisu {
+            bindings = <&kp LANG2>;
+            key-positions = <39 38>;
+        };
+
+        kana {
+            bindings = <&kp LANG1>;
+            key-positions = <40 41>;
         };
     };
 
@@ -50,17 +35,6 @@
             #binding-cells = <1>;
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
-        };
-    };
-
-    behaviors {
-        lt_to_layer_0: lt_to_layer_0 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_TO_0";
-            bindings = <&mo>, <&to_layer_0>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
         };
     };
 
@@ -113,10 +87,10 @@
 
         mouse {
             bindings = <
-&kp Q       &kp W      &kp E     &kp R     &kp T                        &kp Y        &kp U      &kp I      &kp O       &kp P
-&kp A       &kp S      &kp D     &kp F     &kp G        &kp N1  &kp N2  &mkp MB4     &mkp LCLK  &mkp RCLK  &mkp MB5    &kp ENTER
-&kp Z       &kp X      &kp C     &kp V     &kp B        &kp N3  &kp N4  &kp N        &kp M      &kp COMMA  &kp PERIOD  &kp SLASH
-&kp RSHIFT  &kp LCTRL  &kp LGUI  &kp LALT  &lt 1 SPACE  &kp N5  &kp N6  &lt 2 SPACE                                    &kp BSPC
+&none  &none  &none  &none  &none                &none     &none      &none      &none     &none
+&none  &none  &none  &none  &none  &none  &none  &mkp MB4  &mkp LCLK  &mkp RCLK  &mkp MB5  &none
+&none  &none  &none  &none  &none  &none  &none  &none     &none      &none      &none     &none
+&none  &none  &none  &none  &none  &none  &none  &none                                     &none
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
